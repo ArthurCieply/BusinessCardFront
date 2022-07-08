@@ -1,9 +1,28 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { Amplify, Auth } from 'aws-amplify';
+import { Authenticator  } from '@aws-amplify/ui-react';
+//import Auth from '@aws-amplify/auth';
+import awsExports from './aws-exports';
+Amplify.configure(awsExports);
 
 const Create = () => {
-    //  Temporary partition key
-    //  ------------------------
+
+    //console.log(Auth.currentSession());
+    /*const id_token = Auth.currentSession().then(data => data.idToken.jwtToken);
+    console.log("ID Token: ", id_token);
+    const currentuser = Auth.currentAuthenticatedUser();
+    console.log("Current User: ", currentuser);*/
+
+    //Auth.currentSession().then(data => console.log(data.idToken.jwtToken));
+    //const access_token = Auth.currentSession().then(data => data.accessToken.jwtToken);
+    //console.log("Access Token: ", access_token);
+    //const id_token = Auth.currentSession().then(data => data.idToken.jwtToken);
+    //console.log("ID Token: ", id_token);
+
+    /*Auth.currentSession()
+      .then(data => console.log(data.idToken.jwtToken))
+      .catch(err => console.log(err));*/
 
     const [cardName, setCardName] = useState('');
     const [age, setAge] = useState('');
@@ -18,18 +37,47 @@ const Create = () => {
     const [isPending, setIsPending] = useState(false);
 
     const history = useHistory();
+
     
-    const handleSubmit = (e) => {
+
+    //Makes the whole page disappear!!!
+    //  https://stackoverflow.com/questions/48777321/aws-amplify-authentication-how-to-access-tokens-on-successful-auth-signin
+    /*Auth.currentSession().then(res=>{
+        let accessToken = res.getAccessToken()
+        let jwt = accessToken.getJwtToken()
+        //You can print them to see the full objects
+        console.log(`myAccessToken: ${JSON.stringify(accessToken)}`)
+        console.log(`myJwt: ${jwt}`)
+        console.log(jwt)
+        //console.log(Auth.currentSession().then(res=>{res.getAccessToken().getJwtToken()}))
+    })*/
+
+    //console.log(Auth.currentSession().getIdToken().getJwtToken());
+    
+    //Returns Valid Signature in JWT.io
+    Auth.currentSession().then(data => console.log(data.accessToken.jwtToken));
+    
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const card = { cardName, age, dob, jobTitle, employer, cityState, email, phoneNumber, profilePicture };
 
         setIsPending(true);
 
         fetch('https://780hvsuxgg.execute-api.us-east-1.amazonaws.com/Prod/cards', {
+            //method: 'POST',
             method: 'POST',
             headers: { 
-                "Authorization": 'eyJraWQiOiJtcmNpS3lHZ3g1bDNlbHQwdnBXOVp3QXFUNE9tR0lUMkFzb1I0UTBJaWJJPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIzZjU4NzNjYy1lNTc5LTQyYzgtOWE1MC1jYWMyNmI0ZjRlMjEiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9CZXZzbkw5U2ciLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiI1ZWc1Y2I4cTIwZW9wbmFjNGszZDRpcGs1aiIsImV2ZW50X2lkIjoiZmFkNjEzZTEtYjVmMC00MWRjLWEzMzgtOGM2ZWI3ZjUwZmQ3IiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiBwaG9uZSBvcGVuaWQgcHJvZmlsZSBlbWFpbCIsImF1dGhfdGltZSI6MTY1NjYxNTcyNiwiZXhwIjoxNjU2NjE5MzI2LCJpYXQiOjE2NTY2MTU3MjYsImp0aSI6Ijk0Y2I1MWUzLTZhYTgtNDA3YS05N2NhLWE5ZWEyMjM2NTM2OCIsInVzZXJuYW1lIjoiYXJ0aHVyY2llcGx5MSJ9.a94eaARebwI4xfkxOKtQrsVkq2bAVYQuoMq0Q4nIXbQphyfpepxLc-w3yPrVEQzY1fCqlKklxZgHM5rAVVM0-RVEx1gakucBuRGYU8psz4Snj5rSGtJI7Trfxjf1zkjD6dq9qJxHVtfDRQ-7uyPZinqjDt7Xo-zA5lkdh4688lIxA4QylNBR8ivhLrQ4USEwE4FB6d-ga5xdkbweYEUE4LPM8yw1UV5iqrxeHOHWCEpV8nsNgM4cR9AKi8yLBg9VPxDkZY1K70a0LXpIXwe9zQyKN17XQMyQBF0YqyiKDP0KvA_bN5Xa4rxLQAXyOUd0qG-zfefEL8lT8zv52GlNGQ',
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                //'Access-Control-Allow-Origin':'*',
+                //'Access-Control-Allow-Methods':'POST,GET,OPTIONS',
+                // Access Token hard coded doesn't work, nor does it work in Postman
+                
+                
+                //"Authorization": 'eyJraWQiOiJ6N2VwVzhyTVJcL09TRzJSK0dCakJYRXpsYldHRVFwM1g3T0NTb1wvS1RwKzQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJiM2YxMmRhYi05MTUyLTQxNTUtYTY4Mi0xZWNlN2U2ZjZiYWYiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV95SEpoeTJGa2QiLCJjbGllbnRfaWQiOiI3aHN0MjM0bDY1M2xrcGhrMGVpMHNhdXB1YyIsIm9yaWdpbl9qdGkiOiI2OWY2NjdiMC0xMTM2LTRlNDQtOTY4NC1kYTRhNDgwMTFiMGIiLCJldmVudF9pZCI6IjY5YWQyMTA4LWE5OGUtNDc0Mi05NDYzLTBhNzYzNDU4YjE4NCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTcyMzU1ODIsImV4cCI6MTY1NzI0Mjg3OSwiaWF0IjoxNjU3MjM5Mjc5LCJqdGkiOiJjZDZmYjgwNi0wMjk3LTQzN2EtYmRiYi1mOTI1MDM4NTI3NzMiLCJ1c2VybmFtZSI6ImIzZjEyZGFiLTkxNTItNDE1NS1hNjgyLTFlY2U3ZTZmNmJhZiJ9.jKfCCk8ZPWzyzx6_USrr_i3MdLGkWlhp6Rg4imgmk2NJea8gDWjkSzzxfK0C_pXV0PQ3mzIdZ_5oyD__Nxak-ps3RIQ-EMM2fzZ_uW2ME4fszCaBuQbn1wjOSlI8JAvyrPVlSuRwPNbwoDvaK5yjzONEAaUUtyMMLbLNJP9qZiU22s_n_ptyXG36zWeNIq_aVkh5Wwe7Px-v-uwE_chj0Nto_pEgUvFxLNom_T9e-OgIX8RsZI5Eh5A_Eq42hT9oX2uS5hHzhEKPNiX7p3CUmPMf88llHh75kfMPdVojPYNMMM2q_GaDXobcDw-KQc9g6bXXbOvhhLCvU2x2zQQ4HA'  
+                //"Authorization": `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}`
+                //"Authorization": 'Bearer ' + id_token
+                "Authorization": Auth.currentSession().then(data => data.accessToken.jwtToken)
+                //"Authorization": 'Bearer ' + Auth.currentSession().then(data => data.accessToken.jwtToken)
             },
             body: JSON.stringify(card)
         }).then(() => {
@@ -56,6 +104,7 @@ const Create = () => {
                     type="text"
                     required
                     value={cardName}
+                    //placeholder='John Smith'
                     onChange={(e) => setCardName(e.target.value)}
                 />
                 <label>Age:</label>

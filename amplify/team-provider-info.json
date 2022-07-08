@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-businesscardsfront-dev-160438-authRole",
+      "UnauthRoleArn": "arn:aws:iam::298008448376:role/amplify-businesscardsfront-dev-160438-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::298008448376:role/amplify-businesscardsfront-dev-160438-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-businesscardsfront-dev-160438-deployment",
+      "UnauthRoleName": "amplify-businesscardsfront-dev-160438-unauthRole",
+      "StackName": "amplify-businesscardsfront-dev-160438",
+      "StackId": "arn:aws:cloudformation:us-east-1:298008448376:stack/amplify-businesscardsfront-dev-160438/df238020-fd66-11ec-a434-0af9e247033f",
+      "AmplifyAppId": "d1xbk0fon5qo9o"
+    },
+    "categories": {
+      "auth": {
+        "businesscardsfront5a858dca": {}
+      }
+    }
+  }
+}
