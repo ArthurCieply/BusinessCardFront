@@ -6,6 +6,11 @@ import { Authenticator  } from '@aws-amplify/ui-react';
 import awsExports from './aws-exports';
 Amplify.configure(awsExports);
 
+//Local Storage "token"
+//const token = JSON.parse(localStorage.getItem("token"));
+/*const token = (localStorage);
+console.log(token);*/
+
 const Create = () => {
 
     //console.log(Auth.currentSession());
@@ -14,10 +19,9 @@ const Create = () => {
     const currentuser = Auth.currentAuthenticatedUser();
     console.log("Current User: ", currentuser);*/
 
-    //Auth.currentSession().then(data => console.log(data.idToken.jwtToken));
     //const access_token = Auth.currentSession().then(data => data.accessToken.jwtToken);
     //console.log("Access Token: ", access_token);
-    //const id_token = Auth.currentSession().then(data => data.idToken.jwtToken);
+    //Auth.currentSession().then(data => data.idToken.jwtToken);
     //console.log("ID Token: ", id_token);
 
     /*Auth.currentSession()
@@ -55,7 +59,37 @@ const Create = () => {
     //console.log(Auth.currentSession().getIdToken().getJwtToken());
     
     //Returns Valid Signature in JWT.io
-    Auth.currentSession().then(data => console.log(data.accessToken.jwtToken));
+    //Access Token (with Scopes)
+    /*Auth.currentSession().then(data => console.log(data.accessToken.jwtToken));
+    //ID Token (w/out Scopes)*/
+    
+    
+    //ID TOKEN
+    //Auth.currentSession().then(data => console.log(data.idToken.jwtToken));
+    /*const id_token = await Auth.currentSession().then(data => (data.idToken.jwtToken));
+    console.log(id_token);*/
+
+    /*const currentSession = Auth.currentSession();
+    const providerId = currentSession.getIdToken().payload.sub;
+    const identityJwt = currentSession.getIdToken().getJwtToken();*/
+
+    /*Auth.currentSession().then(res=>{
+        let accessToken = res.getAccessToken()
+        let jwt = accessToken.getJwtToken()
+        //You can print them to see the full objects
+        console.log(`myAccessToken: ${JSON.stringify(accessToken)}`)
+        console.log(`myJwt: ${jwt}`)
+    });*/
+
+
+    // Current
+    /*Auth.currentSession().then(res=>{
+        let idToken = res.getIdToken()
+        let jwt = idToken.getJwtToken()
+        //You can print them to see the full objects
+        console.log(`myIDToken: ${JSON.stringify(idToken)}`)
+        console.log(`myJwt: ${jwt}`)
+    });*/
     
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -63,21 +97,20 @@ const Create = () => {
 
         setIsPending(true);
 
-        fetch('https://780hvsuxgg.execute-api.us-east-1.amazonaws.com/Prod/cards', {
-            //method: 'POST',
+        const id_token = await Auth.currentSession().then(data => (data.idToken.jwtToken));
+        console.log(id_token);
+
+        fetch('https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards', {
             method: 'POST',
             headers: { 
                 "Content-Type": "application/json",
-                //'Access-Control-Allow-Origin':'*',
-                //'Access-Control-Allow-Methods':'POST,GET,OPTIONS',
-                // Access Token hard coded doesn't work, nor does it work in Postman
+                "Authorization": "Bearer " + id_token
                 
-                
-                //"Authorization": 'eyJraWQiOiJ6N2VwVzhyTVJcL09TRzJSK0dCakJYRXpsYldHRVFwM1g3T0NTb1wvS1RwKzQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJiM2YxMmRhYi05MTUyLTQxNTUtYTY4Mi0xZWNlN2U2ZjZiYWYiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV95SEpoeTJGa2QiLCJjbGllbnRfaWQiOiI3aHN0MjM0bDY1M2xrcGhrMGVpMHNhdXB1YyIsIm9yaWdpbl9qdGkiOiI2OWY2NjdiMC0xMTM2LTRlNDQtOTY4NC1kYTRhNDgwMTFiMGIiLCJldmVudF9pZCI6IjY5YWQyMTA4LWE5OGUtNDc0Mi05NDYzLTBhNzYzNDU4YjE4NCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTcyMzU1ODIsImV4cCI6MTY1NzI0Mjg3OSwiaWF0IjoxNjU3MjM5Mjc5LCJqdGkiOiJjZDZmYjgwNi0wMjk3LTQzN2EtYmRiYi1mOTI1MDM4NTI3NzMiLCJ1c2VybmFtZSI6ImIzZjEyZGFiLTkxNTItNDE1NS1hNjgyLTFlY2U3ZTZmNmJhZiJ9.jKfCCk8ZPWzyzx6_USrr_i3MdLGkWlhp6Rg4imgmk2NJea8gDWjkSzzxfK0C_pXV0PQ3mzIdZ_5oyD__Nxak-ps3RIQ-EMM2fzZ_uW2ME4fszCaBuQbn1wjOSlI8JAvyrPVlSuRwPNbwoDvaK5yjzONEAaUUtyMMLbLNJP9qZiU22s_n_ptyXG36zWeNIq_aVkh5Wwe7Px-v-uwE_chj0Nto_pEgUvFxLNom_T9e-OgIX8RsZI5Eh5A_Eq42hT9oX2uS5hHzhEKPNiX7p3CUmPMf88llHh75kfMPdVojPYNMMM2q_GaDXobcDw-KQc9g6bXXbOvhhLCvU2x2zQQ4HA'  
+                /*"Authorization": 'Bearer eyJraWQiOiJ6OGdmR01sa2tKWnF4Qmk5a05TU3F5VUx5eFQ1RG1tQ1RqNko0dndKRWE0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJiM2YxMmRhYi05MTUyLTQxNTUtYTY4Mi0xZWNlN2U2ZjZiYWYiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfeUhKaHkyRmtkIiwiY29nbml0bzp1c2VybmFtZSI6ImIzZjEyZGFiLTkxNTItNDE1NS1hNjgyLTFlY2U3ZTZmNmJhZiIsIm9yaWdpbl9qdGkiOiI3OGUyM2UwMy04ODI2LTRiNWEtYmQyMS1mNTMyZWYzMWIyMTUiLCJhdWQiOiI3aHN0MjM0bDY1M2xrcGhrMGVpMHNhdXB1YyIsImV2ZW50X2lkIjoiNjlmY2U2NWYtYjRmZi00Nzc1LTgzZjItYWE1YzI0N2NlYWI4IiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2NTczMTUxOTAsImV4cCI6MTY1NzMyNTgzMCwiaWF0IjoxNjU3MzIyMjMwLCJqdGkiOiJjYzFiODY3Mi0wNjIwLTQ5ZjgtYjE2Mi1lM2M4NDk2OWJiYzMiLCJlbWFpbCI6ImFydGh1ci5jaWVwbHlAZ21haWwuY29tIn0.dtNWUbKfBA9rdqsVHXKaYVcJGoXaYVMykNchte_VOlpOeea2LtsVqxmQx0AAgTgxYbHE-tbvo_4-4QcRUljNQ3CPZidYs2GO0LKw12J-N9rAah8CJbzToKms22_urGEQMhZ4w0r8oa1yN_RiJTiYEqck9WjvIDOfK0obDtqG1o_UnV3tiROnCWzBbe5GVWLwe-DH_InR9ER3NFXeVJb32SzbPOyB2Q8diTp1yyG74E_8xDTn6FBaDvteEs-le5Ik5dfUetsP_7_BF4znzNUrHFukr_DzVXfBM2jpHoo-wzgNFXohHz5CtjASUuudyokk3h-td3KBtTUjbMQxMDzsOg'*/   
+
                 //"Authorization": `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}`
-                //"Authorization": 'Bearer ' + id_token
-                "Authorization": Auth.currentSession().then(data => data.accessToken.jwtToken)
                 //"Authorization": 'Bearer ' + Auth.currentSession().then(data => data.accessToken.jwtToken)
+                //"Authorization": 'Bearer ' + Auth.currentSession().then(data => data.idToken.jwtToken) 
             },
             body: JSON.stringify(card)
         }).then(() => {
@@ -85,7 +118,7 @@ const Create = () => {
             setIsPending(false);
             //history.go(-1);
             history.push('/');
-        })
+        }).catch(err => console.error(err))
     }
 
     return ( 

@@ -49,10 +49,10 @@ function App({ signOut, user }) {
               <Route path="/create">
                 <Create />
               </Route>
-              <Route path="/cards/:id">
+              <Route path="/cards/:id/:sort">
                 <CardDetails />
               </Route>
-              <Route exact path="/update/:id">
+              <Route exact path="/update/:id/:sort">
                 <Update />
               </Route>
               <Route path="*">

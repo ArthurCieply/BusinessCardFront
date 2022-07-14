@@ -20,6 +20,7 @@ const Home = () => {
         console.log('ID Token: ', id_token);
     }*/
     
+    //
     /*const user = Auth.currentAuthenticatedUser();
     console.log(user);
     const token = user.signInUserSession.idToken.jwtToken;
@@ -32,7 +33,7 @@ const Home = () => {
 
 
 
-    const { data: cards, isPending, error } = useFetch('https://780hvsuxgg.execute-api.us-east-1.amazonaws.com/Prod/cards', {
+    const { data: cards, isPending, error } = useFetch('https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards', {
     method: 'GET',    
     headers: {
             //Old one     

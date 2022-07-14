@@ -1,27 +1,38 @@
 import { useHistory, useParams } from "react-router-dom";
 import useFetch from "./useFetch";
 import { Link } from "react-router-dom";
+import { Amplify, Auth } from 'aws-amplify';
 
 const CardDetails = () => {
     const { id } = useParams();
-    const { data: card, error, isPending } = useFetch('https://780hvsuxgg.execute-api.us-east-1.amazonaws.com/Prod/cards/' + id);
+    const { sort } = useParams(); //    Figure this out
+    const { data: card, error, isPending } = useFetch('https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards/' + id + '/' + sort); // Figure sort key out
     const history = useHistory();
+    const cardIdSort = id + sort;
 
-    const handleDelete= () => {
-        fetch('https://780hvsuxgg.execute-api.us-east-1.amazonaws.com/Prod/cards/' + id, {
-            method: 'DELETE'
+    const handleDelete = async (e) => {
+        e.preventDefault();
+        const id_token = await Auth.currentSession().then(data => (data.idToken.jwtToken));
+        console.log(id_token);
+
+        fetch('https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards/' + id + '/' + sort, {
+            method: 'DELETE',
+            headers: { 
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + id_token
+            }
         }).then(() => {
             history.push('/');
-        })
+        }).catch(err => console.error(err))
     }
 
     return (
-        <div className="card-details" key={card + id}>
+        <div className="card-details" key={cardIdSort}>
             { isPending && <div>Loading...</div> }
             { error && <div>{ error }</div> }
             { card && (
                 card.map((card)=>
-                    <article>
+                    <article key={1}>
                         <h2>{ card.cardName }</h2>
                         <h3>Profession: { card.jobTitle }</h3>
                         <div>Employer: { card.employer }</div>

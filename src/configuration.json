@@ -1,0 +1,8 @@
+{
+    "bucketName": "amplify-businesscardsfront-dev-160438-deployment",
+    "apiGatewayUrl": "https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards",
+    "clientId": "7hst234l653lkphk0ei0saupuc",
+    "identityPoolId": "us-east-1:0d70bb10-761d-4a48-b2d2-8e71c961510c",
+    "region": "us-east-1",
+    "userPoolId": "us-east-1_yHJhy2Fkd"
+}
