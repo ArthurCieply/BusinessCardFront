@@ -104,13 +104,7 @@ const Create = () => {
             method: 'POST',
             headers: { 
                 "Content-Type": "application/json",
-                "Authorization": "Bearer " + id_token
-                
-                /*"Authorization": 'Bearer eyJraWQiOiJ6OGdmR01sa2tKWnF4Qmk5a05TU3F5VUx5eFQ1RG1tQ1RqNko0dndKRWE0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJiM2YxMmRhYi05MTUyLTQxNTUtYTY4Mi0xZWNlN2U2ZjZiYWYiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfeUhKaHkyRmtkIiwiY29nbml0bzp1c2VybmFtZSI6ImIzZjEyZGFiLTkxNTItNDE1NS1hNjgyLTFlY2U3ZTZmNmJhZiIsIm9yaWdpbl9qdGkiOiI3OGUyM2UwMy04ODI2LTRiNWEtYmQyMS1mNTMyZWYzMWIyMTUiLCJhdWQiOiI3aHN0MjM0bDY1M2xrcGhrMGVpMHNhdXB1YyIsImV2ZW50X2lkIjoiNjlmY2U2NWYtYjRmZi00Nzc1LTgzZjItYWE1YzI0N2NlYWI4IiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2NTczMTUxOTAsImV4cCI6MTY1NzMyNTgzMCwiaWF0IjoxNjU3MzIyMjMwLCJqdGkiOiJjYzFiODY3Mi0wNjIwLTQ5ZjgtYjE2Mi1lM2M4NDk2OWJiYzMiLCJlbWFpbCI6ImFydGh1ci5jaWVwbHlAZ21haWwuY29tIn0.dtNWUbKfBA9rdqsVHXKaYVcJGoXaYVMykNchte_VOlpOeea2LtsVqxmQx0AAgTgxYbHE-tbvo_4-4QcRUljNQ3CPZidYs2GO0LKw12J-N9rAah8CJbzToKms22_urGEQMhZ4w0r8oa1yN_RiJTiYEqck9WjvIDOfK0obDtqG1o_UnV3tiROnCWzBbe5GVWLwe-DH_InR9ER3NFXeVJb32SzbPOyB2Q8diTp1yyG74E_8xDTn6FBaDvteEs-le5Ik5dfUetsP_7_BF4znzNUrHFukr_DzVXfBM2jpHoo-wzgNFXohHz5CtjASUuudyokk3h-td3KBtTUjbMQxMDzsOg'*/   
-
-                //"Authorization": `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}`
-                //"Authorization": 'Bearer ' + Auth.currentSession().then(data => data.accessToken.jwtToken)
-                //"Authorization": 'Bearer ' + Auth.currentSession().then(data => data.idToken.jwtToken) 
+                "Authorization": "Bearer " + id_token 
             },
             body: JSON.stringify(card)
         }).then(() => {
