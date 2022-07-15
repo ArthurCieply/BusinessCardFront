@@ -5,8 +5,8 @@ import { Amplify, Auth } from 'aws-amplify';
 
 const CardDetails = () => {
     const { id } = useParams();
-    const { sort } = useParams(); //    Figure this out
-    const { data: card, error, isPending } = useFetch('https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards/' + id + '/' + sort); // Figure sort key out
+    const { sort } = useParams(); 
+    const { data: card, error, isPending } = useFetch('https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards/' + id + '/' + sort);
     const history = useHistory();
     const cardIdSort = id + sort;
 
@@ -44,7 +44,7 @@ const CardDetails = () => {
                         <div>PROFILE PICTURE: { card.profilePicture }</div> 
                         <button className="delete-btn" onClick={handleDelete}>Delete</button>
                         
-                        <Link to={"/update/"+id}><button className="edit-btn">Edit</button></Link>
+                        <Link to={"/update/"+id+"/"+sort}><button className="edit-btn">Edit</button></Link>
                     </article>
                 )
                 /*<article>
