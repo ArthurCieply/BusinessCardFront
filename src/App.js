@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Create from './Create';
 import CardDetails from './CardDetails';
 import Update from './Update';
+import Table from './Table';
 import NotFound from './NotFound';
-import axios from 'axios';
+//import axios from 'axios';
 import React from 'react';
 import { Account } from './components/Accounts';
 /*import { Account } from './components/Accounts';
@@ -45,6 +46,9 @@ function App({ signOut, user }) {
             <Switch>
               <Route exact path="/">
                 <Home />
+              </Route>
+              <Route path="/table">
+                <Table />
               </Route>
               <Route path="/create">
                 <Create />

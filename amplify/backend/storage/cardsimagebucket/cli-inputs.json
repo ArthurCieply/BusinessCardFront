@@ -1,0 +1,20 @@
+{
+  "resourceName": "cardsimagebucket",
+  "policyUUID": "beaa349c",
+  "bucketName": "businesscardsfronted2723969cf54451b3a92ef0dc866",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [],
+  "groupAccess": {
+    "admin": [
+      "CREATE_AND_UPDATE",
+      "READ",
+      "DELETE"
+    ],
+    "general": [
+      "CREATE_AND_UPDATE",
+      "READ",
+      "DELETE"
+    ]
+  }
+}

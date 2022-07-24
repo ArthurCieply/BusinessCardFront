@@ -14,6 +14,12 @@
     "categories": {
       "auth": {
         "businesscardsfront5a858dca": {}
+      },
+      "function": {
+        "AdminQueries5ea6a4d4": {
+          "deploymentBucketName": "amplify-businesscardsfront-dev-160438-deployment",
+          "s3Key": "amplify-builds/AdminQueries5ea6a4d4-725a2f36556576537846-build.zip"
+        }
       }
     }
   }

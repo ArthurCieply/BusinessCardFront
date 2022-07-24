@@ -11,6 +11,7 @@ const Navbar = ( signOut, user ) => {
             <Link to="/"><h1>Business Cards</h1></Link>
             <div className="links">
                 <Link to="/">Home</Link>
+                <Link to="/table">Table</Link>
                 <Link to="/create" style={{ 
                     color: "white",
                     backgroundColor: "#3867d5",

@@ -8,6 +8,31 @@ export type AmplifyDependentResourcesAttributes = {
             "UserPoolName": "string",
             "AppClientIDWeb": "string",
             "AppClientID": "string"
+        },
+        "userPoolGroups": {
+            "adminGroupRole": "string",
+            "generalGroupRole": "string"
+        }
+    },
+    "function": {
+        "AdminQueries5ea6a4d4": {
+            "Name": "string",
+            "Arn": "string",
+            "Region": "string",
+            "LambdaExecutionRole": "string"
+        }
+    },
+    "api": {
+        "AdminQueries": {
+            "RootUrl": "string",
+            "ApiName": "string",
+            "ApiId": "string"
+        }
+    },
+    "storage": {
+        "cardsimagebucket": {
+            "BucketName": "string",
+            "Region": "string"
         }
     }
 }

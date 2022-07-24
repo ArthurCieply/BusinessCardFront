@@ -28,8 +28,10 @@ code {
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 600px;
-  margin: 0 auto;
+  /*max-width: 600px;*/
+  max-width: 85vw;
+  /*margin: 0 auto;*/
+  margin: 0 6.5vw;
   border-bottom: 1px solid #f2f2f2;
 }
 .navbar h1 {
@@ -47,8 +49,10 @@ code {
   color: #3867d5;
 }
 .content {
-  max-width: 600px;
-  margin: 40px auto;
+  /*max-width: 600px;*/
+  max-width: 85vw;
+  /*margin: 40px auto;*/
+  margin: 20px 6.5vw;
   padding: 20px;
 }
 
@@ -57,11 +61,32 @@ code {
 .card-preview {
   padding: 10px 16px;
   margin: 20px 0;
+  min-height: 100px;
   border-bottom: 1px solid #fafafa;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
+
+.card-preview .left {
+  width: 50%;
+  padding-right: 0px; 
+  margin-right: 0; 
+  left: 0;
+}
+
+.card-preview .right {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
 .card-preview:hover {
   box-shadow: 2px 4px 6px rgba(0,0,0,0.15);
 }
+
 .card-preview h2 {
   font-size: 20px;
   color: #3867d5;
@@ -70,6 +95,10 @@ code {
 
 .card-preview a {
   text-decoration: none;
+}
+
+.card-preview .right amplify-s3-image {
+  --height: 100%;
 }
 
 /*  Card Details Page   */
@@ -99,6 +128,45 @@ code {
 .card-details .edit-btn {
   background: #0c8620;
   margin-left: 16px;
+}
+
+
+.card-details amplify-s3-image {
+  --width: 100%;
+}
+.card-details .output {
+  display: flex;
+  position: relative;
+  height: fit-content;
+}
+
+.card-details .left {
+  width: 50%;
+  height: fit-content;
+  padding-right: 0px; 
+  margin-right: 0; 
+  left: 0;
+}
+
+.card-details .right {
+  width: 50%; 
+  padding-left: 0px; 
+  margin-left: 0; 
+  right: 0;
+}
+
+.card-details .right-bottom {
+  /*margin: 50% auto;
+  left: 25%;
+  position: relative;*/
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.card-details .bottom {
+  width: 100%; 
+  left: 0;
 }
 
 /* create new blog form */
@@ -132,3 +200,72 @@ code {
   border-radius: 8px;
   cursor: pointer;
 }
+
+/*----------------*/
+/*---- Table -----*/
+/*----------------*/
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #ffffff;
+  text-align: left;
+  padding: 8px;
+  font-size: 12px;
+  overflow-wrap: break-word ;
+  /*word-wrap: break-word;
+  word-break: break-all;*/
+}
+
+th {
+  background-color: rgb(117, 201, 250);
+  /*word-wrap: break-word;*/
+  min-width: 50px;
+  max-width: 120px;
+}
+
+td {
+  background-color: rgb(205, 235, 253);
+  /*word-break: keep-all;*/
+  min-width: 50px;
+  max-width: 200px;
+}
+
+.table-image amplify-s3-image {
+  --width: 100px;
+}
+
+.table form {
+  display: flex;
+  gap: 5px;
+}
+
+.table form td:last-child {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.table form * {
+  font-size: 12px;
+}
+
+.table form input {
+  min-width: 100px;
+  width: fit-content;
+}
+
+/*.table form .add-form {
+  /*  Fix add form spacing * /
+  display: flex;
+  flex-direction: row;
+}*/
