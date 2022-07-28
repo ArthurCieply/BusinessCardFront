@@ -22,7 +22,7 @@ Amplify.configure(awsExports);
 
 
 function App({ signOut, user }) {
-  const title = 'Welcome to the Business Cards App!';
+  /*const title = 'Welcome to the Business Cards App!';*/
 
   /*const session = cognitoUser.getSession();*/
 

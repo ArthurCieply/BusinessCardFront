@@ -1,5 +1,6 @@
 import React from "react";
-import { Amplify, Auth, Storage } from 'aws-amplify';
+//import { Amplify, Auth, Storage } from 'aws-amplify';
+import { Storage } from 'aws-amplify';
 import { AmplifyS3Image } from "@aws-amplify/ui-react/legacy";
 
 const ReadOnlyCard = ({ card, handleEditClick, handleDeleteClick, handleDelete }) => {

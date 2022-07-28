@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import useFetch from "./useFetch";
-import { Link } from "react-router-dom";
-import { Amplify, Auth, Storage } from 'aws-amplify';
-import { v4 as uuidv4 } from "uuid";
+//import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+//import useFetch from "./useFetch";
+//import { Link } from "react-router-dom";
+//import { Amplify, Auth, Storage } from 'aws-amplify';
+import { Auth, Storage } from 'aws-amplify';
+//import { v4 as uuidv4 } from "uuid";
 
 const Update = () => {
 
     const { id } = useParams();
     const { sort } = useParams();
-    const history = useHistory();
-    const cardIdSort = id + sort;
+    //const history = useHistory();
+    //const cardIdSort = id + sort;
     const [ card, setCard ] = useState({
         id: '',
         sort: '',
@@ -38,7 +40,7 @@ const Update = () => {
         });
         const jsonResult = await result.json();
 
-        const sub = await Auth.currentAuthenticatedUser().then((user) => (user.attributes.sub));
+        //const sub = await Auth.currentAuthenticatedUser().then((user) => (user.attributes.sub));
         //console.log(sub);
 
         await setCard(jsonResult);
@@ -65,7 +67,7 @@ const Update = () => {
     });
 
     //Rename to editCardIdSort
-    const [editCardId, setEditCardId ] = useState(null);
+    //      Not Used      const [editCardId, setEditCardId ] = useState(null);
 
     //---------------------------------------
 
@@ -119,7 +121,8 @@ const Update = () => {
             const id_token = await Auth.currentSession().then(data => (data.idToken.jwtToken));
             console.log(id_token);
 
-            fetch('https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards' + '/' + `${editFormData.id}` + '/' + `${editFormData.sort}`, {
+            //fetch('https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards' + '/' + `${editFormData.id}` + '/' + `${editFormData.sort}`, {
+            fetch(`https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards/${editFormData.id}/${editFormData.sort}`, {
                 method: 'PUT',
                 headers: { 
                     "Content-Type": "application/json",
@@ -190,7 +193,8 @@ const Update = () => {
                 const id_token = await Auth.currentSession().then(data => (data.idToken.jwtToken));
                 console.log(id_token);
         
-                fetch('https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards' + '/' + `${editFormData.id}` + '/' + `${editFormData.sort}`, {
+                //fetch('https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards' + '/' + `${editFormData.id}` + '/' + `${editFormData.sort}`, {
+                fetch(`https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards/${editFormData.id}/${editFormData.sort}`, {
                     method: 'PUT',
                     headers: { 
                         "Content-Type": "application/json",
@@ -210,7 +214,8 @@ const Update = () => {
                 //newCards[index] = editedCard;
                 
                 //setCards(newCards);
-                setEditCardId(null);
+                //
+                //      setEditCardId(null);
             } catch (error) {
                 console.log("Image upload error:");
                 console.log(error);
@@ -224,7 +229,8 @@ const Update = () => {
     };
 
     //----------------Edit------------------
-    const handleEditClick = (event, card) => {
+    //  Unused
+    /*const handleEditClick = (event, card) => {
         event.preventDefault();
         setEditCardId(card.id + card.sort);
 
@@ -243,7 +249,7 @@ const Update = () => {
         }
 
         setEditFormData(formValues);
-    }
+    }*/
 
     return ( 
         <div className="create" /*key={cardIdSort}*/>

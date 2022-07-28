@@ -1,7 +1,7 @@
 import { React, useState, useEffect, Fragment } from "react";
-import useFetch from './useFetch';
+//import useFetch from './useFetch';
 import { Amplify, Auth, Storage } from 'aws-amplify';
-import { AmplifyS3Image } from "@aws-amplify/ui-react/legacy";
+//import { AmplifyS3Image } from "@aws-amplify/ui-react/legacy";
 import { v4 as uuidv4 } from "uuid";
 import Resizer from "react-image-file-resizer";
 import awsExports from './aws-exports';
@@ -44,7 +44,8 @@ const Table = () => {
         });
         const jsonResult = await result.json();
 
-        const sub = await Auth.currentAuthenticatedUser().then((user) => (user.attributes.sub));
+        //  Sub
+        //const sub = await Auth.currentAuthenticatedUser().then((user) => (user.attributes.sub));
         //console.log(sub);
 
         setCards(jsonResult);
@@ -288,7 +289,8 @@ const Table = () => {
             const id_token = await Auth.currentSession().then(data => (data.idToken.jwtToken));
             console.log(id_token);
 
-            fetch('https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards' + '/' + `${editFormData.id}` + '/' + `${editFormData.sort}`, {
+            //fetch('https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards' + '/' + `${editFormData.id}` + '/' + `${editFormData.sort}`, {
+            fetch(`https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards/${editFormData.id}/${editFormData.sort}`, {
                 method: 'PUT',
                 headers: { 
                     "Content-Type": "application/json",
@@ -371,7 +373,8 @@ const Table = () => {
                 const id_token = await Auth.currentSession().then(data => (data.idToken.jwtToken));
                 console.log(id_token);
         
-                fetch('https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards' + '/' + `${editFormData.id}` + '/' + `${editFormData.sort}`, {
+                //fetch('https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards' + '/' + `${editFormData.id}` + '/' + `${editFormData.sort}`, {
+                fetch(`https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards/${editFormData.id}/${editFormData.sort}`, {
                     method: 'PUT',
                     headers: { 
                         "Content-Type": "application/json",

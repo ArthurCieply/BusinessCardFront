@@ -1,11 +1,11 @@
 import CardList from './CardList';
 import useFetch from './useFetch';
-import { CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
+//import { CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
 import { Amplify } from 'aws-amplify';
-import { Authenticator  } from '@aws-amplify/ui-react';
+//import { Authenticator  } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import awsExports from './aws-exports';
-import Auth from '@aws-amplify/auth';
+//import Auth from '@aws-amplify/auth';
 Amplify.configure(awsExports);
 
 

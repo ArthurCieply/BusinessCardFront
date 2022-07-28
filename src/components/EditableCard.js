@@ -1,5 +1,5 @@
 import { React } from "react";
-import { AmplifyS3Image } from "@aws-amplify/ui-react/legacy";
+//import { AmplifyS3Image } from "@aws-amplify/ui-react/legacy";
 
 const EditableCard = ({ card, editFormData, handleEditFormChange, handleCancelClick, handlePictureChanged }) => {
     return ( 

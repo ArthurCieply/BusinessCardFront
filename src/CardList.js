@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import { Amplify, Auth, Storage } from 'aws-amplify';
+//import { Amplify, Auth, Storage } from 'aws-amplify';
 import { AmplifyS3Image } from "@aws-amplify/ui-react/legacy";
 
-const CardList = ({ cards, title, handleDelete }) => {
+//const CardList = ({ cards, title, handleDelete }) => {
+const CardList = ({ cards, title }) => {
     //const cards = props.cards;
     //const title = props.title;
 

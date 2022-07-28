@@ -1,7 +1,8 @@
-import { React, useState, useEffect } from "react";
-import useFetch from './useFetch';
+//import { React, useState, useEffect } from "react";
+//import useFetch from './useFetch';
+import { React, useState } from "react";
 import { Amplify, Auth, Storage } from 'aws-amplify';
-import { AmplifyS3Image } from "@aws-amplify/ui-react/legacy";
+//import { AmplifyS3Image } from "@aws-amplify/ui-react/legacy";
 import { useHistory } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import Resizer from "react-image-file-resizer";
