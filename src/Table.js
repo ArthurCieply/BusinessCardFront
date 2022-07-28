@@ -3,6 +3,7 @@ import useFetch from './useFetch';
 import { Amplify, Auth, Storage } from 'aws-amplify';
 import { AmplifyS3Image } from "@aws-amplify/ui-react/legacy";
 import { v4 as uuidv4 } from "uuid";
+import Resizer from "react-image-file-resizer";
 import awsExports from './aws-exports';
 import ReadOnlyRow from "./components/ReadOnlyRow";
 import EditableRow from "./components/EditableRow";
@@ -92,18 +93,26 @@ const Table = () => {
     const [ pictureChange, setPictureChange ] = useState();
     const [ pictureChangedStatus, setPictureChangedStatus ] = useState(false);
 
-    const handlePicture = (event) => {
+    const resizeFile = (file) => new Promise(resolve => {
+        Resizer.imageFileResizer(file, 300, 300, 'JPEG', 100, 0,
+        uri => {
+          resolve(uri);
+        }, 'file' );
+    });
+
+    const handlePicture = async (event) => {
         event.preventDefault();
 
         setPictureStatus(true);
 
         //const fieldName = event.target.getAttribute('name');
         const fieldValue = event.target.files[0];
+        const image = await resizeFile(fieldValue);
 
         //const newPicture = { ...picture};
         //newPicture[fieldName] = fieldValue;
 
-        setPicture(fieldValue);
+        setPicture(image);
     }
 
     //console.log("Outside: ", picture)
@@ -133,13 +142,14 @@ const Table = () => {
         setEditFormData(newFormData);
     }
 
-    const handlePictureChanged = (event) => {
+    const handlePictureChanged = async (event) => {
         event.preventDefault();
         setPictureChangedStatus(true);
 
         const fieldValue = event.target.files[0];
+        const image = await resizeFile(fieldValue);
 
-        setPictureChange(fieldValue);
+        setPictureChange(image);
     }
 
     //-------------------------------------

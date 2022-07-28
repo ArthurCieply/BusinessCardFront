@@ -4,6 +4,7 @@ import useFetch from "./useFetch";
 import { Link } from "react-router-dom";
 import { Amplify, Auth, Storage } from 'aws-amplify';
 import { AmplifyS3Image } from "@aws-amplify/ui-react/legacy";
+import Resizer from "react-image-file-resizer";
 import awsExports from './aws-exports';
 import ReadOnlyCard from "./components/ReadOnlyCard";
 import EditableCard from "./components/EditableCard";
@@ -107,13 +108,21 @@ const CardDetails = () => {
         setEditFormData(newFormData);
     }
 
-    const handlePictureChanged = (event) => {
+    const resizeFile = (file) => new Promise(resolve => {
+        Resizer.imageFileResizer(file, 300, 300, 'JPEG', 100, 0,
+        uri => {
+          resolve(uri);
+        }, 'file' );
+    });
+
+    const handlePictureChanged = async (event) => {
         event.preventDefault();
         setPictureChangedStatus(true);
 
         const fieldValue = event.target.files[0];
+        const image = await resizeFile(fieldValue);
 
-        setPictureChange(fieldValue);
+        setPictureChange(image);
     }
 
     const handleEditFormSubmit = async (event, card) => {

@@ -4,6 +4,7 @@ import { Amplify, Auth, Storage } from 'aws-amplify';
 import { AmplifyS3Image } from "@aws-amplify/ui-react/legacy";
 import { useHistory } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import Resizer from "react-image-file-resizer";
 import awsExports from './aws-exports';
 Amplify.configure(awsExports);
 
@@ -29,20 +30,27 @@ const Create = () => {
 
     const history = useHistory();
 
+    const resizeFile = (file) => new Promise(resolve => {
+        Resizer.imageFileResizer(file, 300, 300, 'JPEG', 100, 0,
+        uri => {
+          resolve(uri);
+        }, 'file' );
+    });
 
-    const handlePicture = (event) => {
+    const handlePicture = async (event) => {
         event.preventDefault();
 
         setPictureStatus(true);
 
         //const fieldName = event.target.getAttribute('name');
         const fieldValue = event.target.files[0];//event.target.value;
+        const image = await resizeFile(fieldValue);
 
         //const newPicture = { ...picture};
         //newPicture[fieldName] = fieldValue;
 
         //setPicture(newPicture);
-        setPicture(fieldValue);
+        setPicture(image);
     }
 
     console.log("Outside: ", picture)
