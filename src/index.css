@@ -30,8 +30,8 @@ code {
   align-items: center;
   /*max-width: 600px;*/
   max-width: 85vw;
-  /*margin: 0 auto;*/
-  margin: 0 6.5vw;
+  margin: 0 auto;
+  /*margin: 0 6.5vw;*/
   border-bottom: 1px solid #f2f2f2;
 }
 .navbar h1 {
@@ -112,28 +112,41 @@ code {
   margin: 20px 0;
 }
 
-.card-details button {
+.card-details div.create {
+  margin: 0 auto;
+}
+
+/*.card-details button {*/
+button {
   color: #fff;
   min-width: 60px;
   border: 0;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+  margin: auto 12.5px;
 }
 
-.card-details .delete-btn {
+/*.card-details .delete-btn {*/
+.delete-btn {
   background: #c71c1c;
 }
 
-.card-details .edit-btn {
+/*.card-details .edit-btn {*/
+.edit-btn {
   background: #0c8620;
   margin-left: 16px;
 }
 
-
-.card-details amplify-s3-image {
-  --width: 100%;
+/*.card-details .cancel-btn {*/
+.cancel-btn {
+  background: #3867d59c;
 }
+
+.save-btn {
+  background: #0c8620;
+}
+
 .card-details .output {
   display: flex;
   position: relative;
@@ -155,6 +168,16 @@ code {
   right: 0;
 }
 
+.card-details .right-top {
+  margin-right: 15%;
+  max-width: 350px;
+}
+
+.card-details amplify-s3-image {
+  /*--width: 300px;*/
+  --height: 25vw;
+}
+
 .card-details .right-bottom {
   /*margin: 50% auto;
   left: 25%;
@@ -167,6 +190,12 @@ code {
 .card-details .bottom {
   width: 100%; 
   left: 0;
+}
+
+/*  Card Detailed Edit  */
+
+.card-edit .title {
+  text-align: center;
 }
 
 /* create new blog form */
@@ -214,6 +243,7 @@ code {
 table {
   border-collapse: collapse;
   width: 100%;
+  /*table-layout: fixed;*/
 }
 
 th,
@@ -241,6 +271,10 @@ td {
   max-width: 200px;
 }
 
+td.long {
+  max-width: 80px;
+}
+
 .table-image amplify-s3-image {
   --width: 100px;
 }
@@ -251,7 +285,7 @@ td {
 }
 
 .table form td:last-child {
-  display: flex;
+  /*display: flex;*/
   justify-content: space-evenly;
 }
 
@@ -263,6 +297,42 @@ td {
   min-width: 100px;
   width: fit-content;
 }
+
+/*.add-form label {
+  margin-left: 20px;
+}
+
+.add-form label:nth-of-type(1) {
+  margin-left: 0px;
+}*/
+
+.table div.add-form {
+  padding: 20px;
+  display: flex;
+  flex-wrap:wrap;
+  flex-direction: column;
+  align-items: center;
+  /*max-width: 600px;*/
+  max-width: 85vw;
+  margin: 0 auto;
+  flex: auto;
+}
+
+.table .input-field {
+  width: 50%;
+}
+
+.table .input-field label {
+  width: 100%;
+}
+
+.table .input-field input {
+  width: 100%;
+}
+
+/*.table .table-btn-margin-left {
+  margin-left: 8px;
+}*/
 
 /*.table form .add-form {
   /*  Fix add form spacing * /
