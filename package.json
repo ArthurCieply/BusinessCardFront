@@ -1,6 +1,6 @@
 {
-  "name": "businesscardsfront",
   "homepage": "https://arthurcieply.github.io/BusinessCardFront/",
+  "name": "businesscardsfront",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
