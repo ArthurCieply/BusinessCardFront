@@ -80,7 +80,7 @@ function Update(props)
                             <input
                                 type="number"
                                 min={17}
-                                max={125}
+                                max={99}
                                 //defaultValue={card.age}
                                 value={age}
                                 //value={age || `${card.age}`}
@@ -274,7 +274,7 @@ const Update = () => {
                             <input
                                 type="number"
                                 min={17}
-                                max={125}
+                                max={99}
                                 //defaultValue={card.age}
                                 value={age}
                                 //value={age || `${card.age}`}

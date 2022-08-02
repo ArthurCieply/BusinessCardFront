@@ -1,9 +1,0 @@
-https://stackoverflow.com/questions/43954325/why-does-my-jwt-token-from-amazon-cognito-have-an-invalid-signature
-
-
-https://cognito-idp.{region}.amazonaws.com/{userPoolId}/.well-known/jwks.json
-https://cognito-idp.us-east-1.amazonaws.com/us-east-1_yHJhy2Fkd/.well-known/jwks.json
-
-{"keys":[{"alg":"RS256","e":"AQAB","kid":"z8gfGMlkkJZqxBi9kNSSqyULyxT5DmmCTj6J4vwJEa4=","kty":"RSA","n":"sKVfifs30MQUZMDt_cBuExru5IdsLsOMQ3-XrpmbBpjRBfCtqLYdwudq-7IEwmyA8G_HXqgOXZ1qPx4f7fnDokr1XnzrcBY-TMRLlszN1R7NeV-IxzJ9rXB3T2h_ArTi2yqARIeya99b_ohWOXD77Dpm6mPnsqX1WiPCpn88UXLv4C7gbHqx5ndvpsRO0yUcHFqIB6PxoILLN6Xz4YRD3U94OYRfurv8vqCfxRF8hD13uANsxo2aO5nI9SacVJHR7dtvA7TDPIX4ztag-1HEn52VK6PveFThWKQq-8aOt83tCx9zzxTJUvf-EhPM8Qv9yEg8vsbfeVPDeEh0lHP0Pw","use":"sig"},{"alg":"RS256","e":"AQAB","kid":"z7epW8rMR/OSG2R+GBjBXEzlbWGEQp3X7OCSo/KTp+4=","kty":"RSA","n":"oM1Hm_aOepYNwWKzKCZvASU7ftax-E2v__1FRfADWXTHhtUDyrzaFGY7jpalIGrTl9vRzRe2eA3TSCa7zhGy58NnXI6DsoP6ktv63KOK_oWuGyUv6Vo2HzdtLIU-f1XeT6gkNX3NrOHw0d6uqxFBP4-1ysKiTOVUQdwQEMkLpwb55cPqCUSQ9lm2TyF1GRRjBZ1hgLOaC4i4T3M-Lb0x2XrBq1zQlI7PHlx8gwHZRYG1_V7fosQq2hBXze_QHr2PpeFeK5VvMzpE8Wj0_SQCQpEm97B6wZyCSzwsR3PtO8V0UfLAH0HL-kj5653cUyvnuovVDpLqQESv8-UIqy3Wiw","use":"sig"}]}
-"kid":"z8gfGMlkkJZqxBi9kNSSqyULyxT5DmmCTj6J4vwJEa4="
-"kid":"z7epW8rMR/OSG2R+GBjBXEzlbWGEQp3X7OCSo/KTp+4="

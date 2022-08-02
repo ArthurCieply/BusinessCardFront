@@ -202,7 +202,7 @@ const Create = () => {
                     type="number"
                     name="age"
                     min={17}
-                    max={125}
+                    max={99}
                     onChange={handleAddFormChange}
                     //value={age}
                     placeholder="Enter age..."
@@ -424,7 +424,7 @@ const Create = () => {
                 <input
                     type="number"
                     min={17}
-                    max={125}
+                    max={99}
                     value={age}
                     onChange={(e) => setAge(e.target.value)}
                 />

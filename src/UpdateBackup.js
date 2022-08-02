@@ -105,7 +105,7 @@ const Update = () => {
                             <input
                                 type="number"
                                 min={17}
-                                max={125}
+                                max={99}
                                 /*min="17"
                                 max="125"*/
                                 //defaultValue={card.age}

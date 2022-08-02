@@ -7,10 +7,14 @@ import Resizer from "react-image-file-resizer";
 import awsExports from './aws-exports';
 import ReadOnlyRow from "./components/ReadOnlyRow";
 import EditableRow from "./components/EditableRow";
+import SortButton from "./components/SortButton";
+import SortTableData from "./components/SortTableData";
+import twoArrows from "./images/default.png"
 Amplify.configure(awsExports);
 
 
-const Table = () => {
+//const Table = () => {
+const SortableTable = ({ sortConfig }) => {
 
     //  Fetch Cards -   Works
     /*const { data: cards, isPending, error } = useFetch('https://029pp6rcv1.execute-api.us-east-1.amazonaws.com/Prod/cards', {
@@ -49,6 +53,7 @@ const Table = () => {
         //console.log(sub);
 
         setCards(jsonResult);
+        setSortedCards(jsonResult);
     };
 
 
@@ -470,6 +475,43 @@ const Table = () => {
 
     //const handleEditClickPicture = (event,)
 
+    //---------------------------------------------------
+
+    //--------------------  Sorting  ---------------------
+
+    //console.log(SortTableData(cards, { sortBy: 'jobTitle', direction: 'ascending' }))
+
+    const shouldSort = sortConfig?.sortBy
+    const tableData = shouldSort ? SortTableData(cards, sortConfig) : cards
+    
+    //const [ sortedCards, setSortedCards ] = useState(cards)
+    const [ sortedCards, setSortedCards ] = useState([])
+    const [ direction, setDirection ] = useState()
+    const [ sortBy, setSortBy ] = useState()
+    const { showSortUi } = sortConfig || {}
+
+    //  Sorts
+    //SortTableData(cards, { sortBy: 'cardName', direction: 'ascending' })
+  
+    const handleClick = (event) => {
+        event.preventDefault();
+        console.log("clicked");
+        //console.log(sortDirection);
+        const sortDirection = direction === 'descending' ? 'ascending' : 'descending'
+        console.log("sortDirection: ", sortDirection);
+        setDirection(sortDirection)
+        console.log("Direction: ", direction);
+        setSortBy(event.target.id)
+        console.log("SortBy: ", sortBy);
+        const sortConfig = { sortBy: event.target.id, direction: sortDirection }
+        //const sortConfig = { sortBy: 'cardName', direction: 'descending' }
+        console.log("sortConfig: ", sortConfig);
+        setSortedCards(SortTableData(cards, sortConfig))
+        console.log("sortedCards: ", sortedCards);
+    }
+
+    //---------------------------------------------------
+
     return ( 
         <div className="table">
             <h2>Table:</h2>
@@ -482,11 +524,24 @@ const Table = () => {
                                 <th>Card Creator (PK)</th>
                                 <th>Card Sort (SK)</th>
                                 <th>Name</th>
-                                <th>Age</th>
+                                <th>Age<button direction={direction} id="age" className="btn-image" onClick={handleClick}><img src={twoArrows} alt="Cannot display sort arrows" id="age"/></button></th>
                                 <th>Date of Birth</th>
-                                <th>Job Title</th>
-                                <th>Employer</th>
-                                <th>City, State</th>
+                                {/*   Works   */}
+                                <th>Job Title<button direction={direction} id="jobTitle" className="btn-image" onClick={handleClick}><img src={twoArrows} alt="Cannot display sort arrows" id="jobTitle"/></button></th>
+                                {/*<th>Job Title<button direction={direction} id="jobTitle" className="btn-image" onClick={handleClick} sortBy={sortBy}><img src={twoArrows} alt="Cannot display sort arrows" id="jobTitle"/></button></th>*/}
+                                {/*<th>
+                                    Job Title{' '}
+                                    {showSortUi && (
+                                        <SortButton //  Not working
+                                            direction={direction}
+                                            id="jobTitle"
+                                            onClick={handleClick}
+                                            sortBy={sortBy}
+                                        />
+                                    )}
+                                </th>*/}
+                                <th>Employer<button direction={direction} id="employer" className="btn-image" onClick={handleClick}><img src={twoArrows} alt="Cannot display sort arrows" id="employer"/></button></th>
+                                <th>City, State<button direction={direction} id="cityState" className="btn-image" onClick={handleClick}><img src={twoArrows} alt="Cannot display sort arrows" id="cityState"/></button></th>
                                 <th>Email</th>
                                 <th>Phone Number</th>
                                 <th>Profile Picture Name</th>
@@ -495,7 +550,9 @@ const Table = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {cards.map((card)=> (
+                            {/*{cards.map((card)=> (*/}
+                            {/*{tableData.map((card)=> (*/}
+                            {sortedCards.map(card => (
                                 <Fragment key={ `Fragment` + card.id + card.sort}>
                                     { editCardId === card.id + card.sort ? ( 
                                         <EditableRow 
@@ -541,7 +598,7 @@ const Table = () => {
                             type="number"
                             name="age"
                             min={17}
-                            max={125}
+                            max={99}
                             onChange={handleAddFormChange}
                             //value={age}
                             placeholder="Enter age..."
@@ -647,4 +704,4 @@ const Table = () => {
     )
 }
 
-export default Table;
+export default SortableTable;

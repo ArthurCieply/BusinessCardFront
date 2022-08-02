@@ -291,7 +291,7 @@ const Update = () => {
                             type="number"
                             name="age"
                             min={17}
-                            max={125}
+                            max={99}
                             placeholder="Enter age..."
                             value={editFormData.age}
                             onChange={handleEditFormChange}
