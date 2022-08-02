@@ -1,0 +1,2 @@
+(this.webpackJsonpbusinesscardsfront=this.webpackJsonpbusinesscardsfront||[]).push([[29],{461:function(n,t,e){"use strict";e.r(t),e.d(t,"amplify_container",(function(){return i}));var s=e(15),i=function(){function n(n){Object(s.k)(this,n)}return n.prototype.render=function(){return Object(s.i)(s.b,null,Object(s.i)("slot",null))},n}();i.style="amplify-container{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;height:100vh}"}}]);
+//# sourceMappingURL=29.44bc45e1.chunk.js.map
