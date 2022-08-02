@@ -44,19 +44,19 @@ function App({ signOut, user }) {
                 <h3>Hello {user.username}</h3></Navbar>*/}
           <div className="content">
             <Switch>
-              <Route exact path="/BusinessCardFront/">
+              <Route exact path="/">
                 <Home />
               </Route>
-              <Route path="/BusinessCardFront/table">
+              <Route path="/table">
                 <Table />
               </Route>
-              <Route path="/BusinessCardFront/create">
+              <Route path="/create">
                 <Create />
               </Route>
-              <Route path="/BusinessCardFront/cards/:id/:sort">
+              <Route path="/cards/:id/:sort">
                 <CardDetails />
               </Route>
-              <Route exact path="/BusinessCardFront/update/:id/:sort">
+              <Route exact path="/update/:id/:sort">
                 <Update />
               </Route>
               <Route path="*">
