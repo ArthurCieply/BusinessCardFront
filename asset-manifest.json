@@ -3,15 +3,15 @@
     "static/js/0.abc8a696.chunk.js": "/BusinessCardFront/static/js/0.abc8a696.chunk.js",
     "static/js/0.abc8a696.chunk.js.map": "/BusinessCardFront/static/js/0.abc8a696.chunk.js.map",
     "main.css": "/BusinessCardFront/static/css/main.82dc4696.chunk.css",
-    "main.js": "/BusinessCardFront/static/js/main.b4b7bbc5.chunk.js",
-    "main.js.map": "/BusinessCardFront/static/js/main.b4b7bbc5.chunk.js.map",
+    "main.js": "/BusinessCardFront/static/js/main.c402ecef.chunk.js",
+    "main.js.map": "/BusinessCardFront/static/js/main.c402ecef.chunk.js.map",
     "polyfills-css-shim.js": "/BusinessCardFront/static/js/polyfills-css-shim.18d9fd26.chunk.js",
     "polyfills-css-shim.js.map": "/BusinessCardFront/static/js/polyfills-css-shim.18d9fd26.chunk.js.map",
     "runtime-main.js": "/BusinessCardFront/static/js/runtime-main.3ea069e2.js",
     "runtime-main.js.map": "/BusinessCardFront/static/js/runtime-main.3ea069e2.js.map",
     "static/css/4.ccd5eb38.chunk.css": "/BusinessCardFront/static/css/4.ccd5eb38.chunk.css",
-    "static/js/4.8de79dfb.chunk.js": "/BusinessCardFront/static/js/4.8de79dfb.chunk.js",
-    "static/js/4.8de79dfb.chunk.js.map": "/BusinessCardFront/static/js/4.8de79dfb.chunk.js.map",
+    "static/js/4.172d7a43.chunk.js": "/BusinessCardFront/static/js/4.172d7a43.chunk.js",
+    "static/js/4.172d7a43.chunk.js.map": "/BusinessCardFront/static/js/4.172d7a43.chunk.js.map",
     "static/js/5.dd862e88.chunk.js": "/BusinessCardFront/static/js/5.dd862e88.chunk.js",
     "static/js/5.dd862e88.chunk.js.map": "/BusinessCardFront/static/js/5.dd862e88.chunk.js.map",
     "static/js/6.eef49660.chunk.js": "/BusinessCardFront/static/js/6.eef49660.chunk.js",
@@ -81,13 +81,13 @@
     "static/css/main.82dc4696.chunk.css.map": "/BusinessCardFront/static/css/main.82dc4696.chunk.css.map",
     "static/js/23.9a922109.chunk.js.LICENSE.txt": "/BusinessCardFront/static/js/23.9a922109.chunk.js.LICENSE.txt",
     "static/js/34.af9c5b22.chunk.js.LICENSE.txt": "/BusinessCardFront/static/js/34.af9c5b22.chunk.js.LICENSE.txt",
-    "static/js/4.8de79dfb.chunk.js.LICENSE.txt": "/BusinessCardFront/static/js/4.8de79dfb.chunk.js.LICENSE.txt"
+    "static/js/4.172d7a43.chunk.js.LICENSE.txt": "/BusinessCardFront/static/js/4.172d7a43.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3ea069e2.js",
     "static/css/4.ccd5eb38.chunk.css",
-    "static/js/4.8de79dfb.chunk.js",
+    "static/js/4.172d7a43.chunk.js",
     "static/css/main.82dc4696.chunk.css",
-    "static/js/main.b4b7bbc5.chunk.js"
+    "static/js/main.c402ecef.chunk.js"
   ]
 }
