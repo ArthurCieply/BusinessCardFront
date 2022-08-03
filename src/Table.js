@@ -1,4 +1,5 @@
 import { React, useState, useEffect, Fragment } from "react";
+import { useHistory } from "react-router-dom";
 //import useFetch from './useFetch';
 import { Amplify, Auth, Storage } from 'aws-amplify';
 //import { AmplifyS3Image } from "@aws-amplify/ui-react/legacy";
@@ -34,6 +35,7 @@ const SortableTable = ({ sortConfig }) => {
     const [cards, setCards] = useState(data);*/
     
     const [ cards, setCards ] = useState([])
+    const history = useHistory();
 
     useEffect(() => {
         fetchData();
@@ -408,6 +410,7 @@ const SortableTable = ({ sortConfig }) => {
 
         //Edited JSON data not appearing on edit 'save' (although edited/replaced image does appear on edit 'save')
         //So I'll just refresh the page in the meantime
+        history.push('/BusinessCardFront/');
         setTimeout(window.location.reload(), 5000);
     };
 
