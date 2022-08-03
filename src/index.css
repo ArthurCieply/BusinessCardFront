@@ -141,6 +141,7 @@ button {
 /*.card-details .cancel-btn {*/
 .cancel-btn {
   background: #3867d59c;
+  margin-bottom: 10px;
 }
 
 .save-btn {

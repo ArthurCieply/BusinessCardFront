@@ -408,7 +408,7 @@ const SortableTable = ({ sortConfig }) => {
 
         //Edited JSON data not appearing on edit 'save' (although edited/replaced image does appear on edit 'save')
         //So I'll just refresh the page in the meantime
-        setTimeout(window.location.reload(), 2500);
+        setTimeout(window.location.reload(), 5000);
     };
 
     //----------------Edit------------------
@@ -458,7 +458,7 @@ const SortableTable = ({ sortConfig }) => {
             
             //Edited JSON data not appearing on edit 'save' (although edited/replaced image does appear on edit 'save')
             //So I'll just refresh the page in the meantime
-            setTimeout(window.location.reload(), 2500);
+            setTimeout(window.location.reload(), 5000);
 
         }).catch(err => console.error(err))
     }

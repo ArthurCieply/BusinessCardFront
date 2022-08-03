@@ -262,10 +262,10 @@ const CardDetails = () => {
 
         //Edited JSON data not appearing on edit 'save' (although edited/replaced image does appear on edit 'save')
         //So I'll just refresh the page in the meantime
-        //setTimeout(window.location.reload(), 2500);
+        //setTimeout(window.location.reload(), 5000);
         //history.push('/');
         history.push('/BusinessCardFront/');
-        setTimeout(window.location.reload(), 2500);
+        setTimeout(window.location.reload(), 5000);
     };
 
     const handleCancelClick = () => {
