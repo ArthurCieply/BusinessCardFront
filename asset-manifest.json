@@ -3,8 +3,8 @@
     "static/js/0.abc8a696.chunk.js": "/BusinessCardFront/static/js/0.abc8a696.chunk.js",
     "static/js/0.abc8a696.chunk.js.map": "/BusinessCardFront/static/js/0.abc8a696.chunk.js.map",
     "main.css": "/BusinessCardFront/static/css/main.82dc4696.chunk.css",
-    "main.js": "/BusinessCardFront/static/js/main.c402ecef.chunk.js",
-    "main.js.map": "/BusinessCardFront/static/js/main.c402ecef.chunk.js.map",
+    "main.js": "/BusinessCardFront/static/js/main.1035515a.chunk.js",
+    "main.js.map": "/BusinessCardFront/static/js/main.1035515a.chunk.js.map",
     "polyfills-css-shim.js": "/BusinessCardFront/static/js/polyfills-css-shim.18d9fd26.chunk.js",
     "polyfills-css-shim.js.map": "/BusinessCardFront/static/js/polyfills-css-shim.18d9fd26.chunk.js.map",
     "runtime-main.js": "/BusinessCardFront/static/js/runtime-main.3ea069e2.js",
@@ -88,6 +88,6 @@
     "static/css/4.ccd5eb38.chunk.css",
     "static/js/4.172d7a43.chunk.js",
     "static/css/main.82dc4696.chunk.css",
-    "static/js/main.c402ecef.chunk.js"
+    "static/js/main.1035515a.chunk.js"
   ]
 }
