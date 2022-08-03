@@ -102,7 +102,8 @@ const Create = () => {
                 body: JSON.stringify(newCard)
             }).then(() => {
                 console.log('New card added');
-                history.push('/');
+                //history.push('/');
+                history.push('/BusinessCardFront/');
             }).catch(err => console.error(err))
     
             //let newCards = [...cards, newCard];
@@ -168,7 +169,8 @@ const Create = () => {
                     body: JSON.stringify(newCard)
                 }).then(() => {
                     console.log('New card added');
-                    history.push('/');
+                    //history.push('/');
+                    history.push('/BusinessCardFront/');
                 }).catch(err => console.error(err))
         
                 //let newCards = [...cards, newCard];

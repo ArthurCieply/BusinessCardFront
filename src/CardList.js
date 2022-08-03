@@ -13,7 +13,7 @@ const CardList = ({ cards, title }) => {
             {Array.isArray(cards) ? (cards).map((card) => (
                 //<div className="card-preview" key={card.id.sort}>
                 <div className="card-preview" key={card.id + card.sort}>  
-                    <Link to={`/cards/${card.id}/${card.sort}`}>
+                    <Link to={`/BusinessCardFront/cards/${card.id}/${card.sort}`}>
                         <div className="left">
                             <h2>{ card.cardName }</h2>
                             <p>{ card.jobTitle }</p>

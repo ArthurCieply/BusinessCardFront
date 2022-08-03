@@ -263,7 +263,8 @@ const CardDetails = () => {
         //Edited JSON data not appearing on edit 'save' (although edited/replaced image does appear on edit 'save')
         //So I'll just refresh the page in the meantime
         //setTimeout(window.location.reload(), 2500);
-        history.push('/');
+        //history.push('/');
+        history.push('/BusinessCardFront/');
         setTimeout(window.location.reload(), 2500);
     };
 
@@ -287,7 +288,8 @@ const CardDetails = () => {
                 "Authorization": "Bearer " + id_token
             }
         }).then(() => {
-            history.push('/');
+            //history.push('/');
+            history.push('/BusinessCardFront/');
         }).catch(err => console.error(err))
     }
 
