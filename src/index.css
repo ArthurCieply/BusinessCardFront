@@ -7,6 +7,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+input,textarea {
+  width:100%;
+  display:block 
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -41,7 +46,7 @@ code {
   margin-left: auto;
 }
 .navbar a {
-  margin-left: 16px;
+  /*margin-left: 16px;*/
   text-decoration: none;
   padding: 6px;
 }
@@ -66,6 +71,9 @@ code {
   position: relative;
   display: flex;
   flex-direction: column;
+  -webkit-transition: .3s ease;
+  -o-transition: .3s ease;
+  transition: .3s ease;
 }
 
 .card-preview .left {
@@ -85,6 +93,15 @@ code {
 
 .card-preview:hover {
   box-shadow: 2px 4px 6px rgba(0,0,0,0.15);
+  -webkit-transition: .3s ease;
+  -o-transition: .3s ease;
+  transition: .3s ease;
+}
+
+.card-preview:active {
+  -webkit-transform: scale(.97) translateY(2px);
+      -ms-transform: scale(.97) translateY(2px);
+          transform: scale(.97) translateY(2px);
 }
 
 .card-preview h2 {
@@ -118,6 +135,13 @@ code {
 
 /*.card-details button {*/
 button {
+  display: inline-block;
+  -webkit-transition: .2s ease;
+  -o-transition: .2s ease;
+  transition: .2s ease;
+  -webkit-box-shadow: 0px 2px 5px -1px rgb(14, 0, 0);
+
+          box-shadow: 0px 2px 5px -1px rgb(14, 0, 0);
   color: #fff;
   min-width: 60px;
   border: 0;
@@ -127,9 +151,74 @@ button {
   margin: auto 12.5px;
 }
 
+button:hover {
+  cursor: pointer;
+  -webkit-transition: .2s ease;
+  -o-transition: .2s ease;
+  transition: .2s ease;
+}
+
+button:active {
+  -webkit-transform: scale(.97) translateY(2px);
+      -ms-transform: scale(.97) translateY(2px);
+          transform: scale(.97) translateY(2px);
+}
+
+/*--------------*/
+
+/*  Do this one for each button type  */
+.button-solid:hover {
+    background-color: var(--primarybuttonhover);
+    -webkit-transition: .2s ease;
+    -o-transition: .2s ease;
+    transition: .2s ease;
+}
+/*-------------*/
+
+.navbar a.create-link {
+  padding-right: 0px !important;
+}
+
+.new-btn { 
+  background: #3867d5;
+  margin-right: 0px;
+}
+
+.new-btn:hover { 
+  background: #335fc7;
+}
+
+.signout-container {
+  width: 100px;
+  display: flex;
+  /*margin: 10px 25px 10px 75%;*/
+  /*margin-right: 0px !important;*/
+  min-width: none;
+  margin-left: auto;
+}
+
+.signout-container main {
+  margin-left: auto;
+}
+
+.sign-btn { 
+  background: #c98104;
+  margin-left: auto;
+  margin-top: 10px;
+  margin-right: 0px;
+}
+
+.sign-btn:hover { 
+  background: #bf7a04;
+}
+
 /*.card-details .delete-btn {*/
 .delete-btn {
   background: #c71c1c;
+}
+
+.delete-btn:hover {
+  background: #b21a1a;
 }
 
 /*.card-details .edit-btn {*/
@@ -138,14 +227,26 @@ button {
   margin-left: 16px;
 }
 
+.edit-btn:hover {
+  background: #0c711d;
+}
+
 /*.card-details .cancel-btn {*/
 .cancel-btn {
   background: #3867d59c;
   margin-bottom: 10px;
 }
 
+.cancel-btn:hover {
+  background: #2e56b2c5;
+}
+
 .save-btn {
   background: #0c8620;
+}
+
+.save-btn:hover {
+  background: #0c7820;
 }
 
 .card-details .output {
@@ -162,7 +263,7 @@ button {
   left: 0;
 }
 
-.card-details .right {
+/*.card-details .right {
   width: 50%; 
   padding-left: 0px; 
   margin-left: 0; 
@@ -175,8 +276,43 @@ button {
 }
 
 .card-details amplify-s3-image {
-  /*--width: 300px;*/
+  /*--width: 300px;* /
   --height: 25vw;
+}
+
+.card-details .right-bottom {
+  /*margin: 50% auto;
+  left: 25%;
+  position: relative;* /
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.card-details .bottom {
+  width: 100%; 
+  left: 0;
+}
+*/
+
+.card-details .right {
+  width: 50%; 
+  padding-left: 0px; 
+  margin-left: 0; 
+  right: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.card-details .right-top {
+  margin-right: 0px;/*15%;*/
+  max-width: 350px;
+  right: 0;
+}
+
+.card-details amplify-s3-image {
+  /*--width: 300px;*/
+  --height: 20vw;
 }
 
 .card-details .right-bottom {
@@ -188,9 +324,21 @@ button {
   right: 0;
 }
 
+/*.card-details .bottom button.delete-btn,
+.card-details .bottom button.edit-btn {
+  display: block;
+  right: 0px;
+}*/
+
 .card-details .bottom {
-  width: 100%; 
-  left: 0;
+  position: relative;
+  width: fit-content !important; 
+  margin-left: auto;
+  margin-right: 0;
+  right: 0;
+  bottom: 0;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 /*  Card Detailed Edit  */
@@ -199,7 +347,7 @@ button {
   text-align: center;
 }
 
-/* create new blog form */
+/* create new card form */
 .create {
   max-width: 400px;
   margin: 0 auto;
@@ -270,10 +418,38 @@ td {
   /*word-break: keep-all;*/
   min-width: 50px;
   max-width: 200px;
+  overflow: hidden;
+  -webkit-transition: .3s ease;
+  -o-transition: .3s ease;
+  transition: .3s ease;
+}
+
+tbody tr:hover td {
+  background-color: rgb(200, 230, 248);
+  -webkit-transition: .3s ease;
+  -o-transition: .3s ease;
+  transition: .3s ease;
+}
+
+tbody tr:hover td {
+  background-color: rgb(200, 230, 248);
+  -webkit-transition: .3s ease;
+  -o-transition: .3s ease;
+  transition: .3s ease;
+}
+
+tr td input {
+  min-width: 50px;
+  max-width: 120px;
+  /*text-overflow: ellipsis;*/
 }
 
 td.long {
   max-width: 80px;
+}
+
+.long-short {
+  max-width: 60px;
 }
 
 .table-image amplify-s3-image {
@@ -350,6 +526,24 @@ th button.btn-image {
   background: transparent !important;
   margin: 0px;
   padding: 0px;
+  /*min-width: 0px !important;*/
   width: fit-content !important;
+  text-align: center;
   display: inline-block;
+  border: none;
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(14, 0, 0, 0);
+  box-shadow: 0px 0px 0px 0px rgba(14, 0, 0, 0);
+  
+}
+
+th button.btn-image:hover {
+  -webkit-transform: scale(1.25);
+      -ms-transform: scale(1.25);
+          transform: scale(1.25);  
+}
+
+th button.btn-image:active {
+  -webkit-transform: scale(1.45);
+      -ms-transform: scale(1.45);
+          transform: scale(1.45);
 }

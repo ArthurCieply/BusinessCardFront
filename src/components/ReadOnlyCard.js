@@ -23,16 +23,16 @@ const ReadOnlyCard = ({ card, handleEditClick, handleDeleteClick, handleDelete }
                     {/* Renders, but little control, seems very depricated */} 
                     <AmplifyS3Image imgKey={ card.pictureName }/>
                 </div>
-                <div className="right-bottom">
-                    {/*<button className="delete-btn" onClick={(e) => { handleDelete(); Storage.remove(`${card.pictureName}`)}}>Delete</button>*/}
-                    
-                    {/*  WORKS   */}
-                    <button className="delete-btn" onClick={(e) => { e.preventDefault(); handleDelete(); Storage.remove(`${card.pictureName}`)}}>Delete</button>
-                    {/*<button className="delete-btn" onClick={(e) => { handleDelete(e)}}>Delete</button>*/}
-                    <button className="edit-btn" onClick={(event)=> handleEditClick(event, card)}>Edit</button>
-                    {/*<Link to={"/update/"+id+"/"+sort}><button className="edit-btn">Edit</button></Link>*/}
-                </div>
             </div>
+        </div>
+        <div className="bottom">
+            {/*<button className="delete-btn" onClick={(e) => { handleDelete(); Storage.remove(`${card.pictureName}`)}}>Delete</button>*/}
+            
+            {/*  WORKS   */}
+            <button className="delete-btn" onClick={(e) => { e.preventDefault(); handleDelete(); Storage.remove(`${card.pictureName}`)}}>Delete</button>
+            {/*<button className="delete-btn" onClick={(e) => { handleDelete(e)}}>Delete</button>*/}
+            <button className="edit-btn" onClick={(event)=> handleEditClick(event, card)}>Edit</button>
+            {/*<Link to={"/update/"+id+"/"+sort}><button className="edit-btn">Edit</button></Link>*/}
         </div>
         
         {/*

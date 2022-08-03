@@ -3,21 +3,23 @@ import { React } from "react";
 const EditableRow = ({ card, editFormData, handleEditFormChange, handleCancelClick, handlePictureChanged }) => {
     return ( 
         <tr>
-            <td>
+            <td className="long">
                 {/*--- Might be a problem in including id and sort as input fields because this isn't where their value is coming from ---*/} 
                 <input 
                     //style={{display: 'none'}}
                     type="text"
+                    className="long-short"
                     name="id"
                     value={editFormData.id}
                     readOnly
                 />
             </td>
-            <td>
+            <td className="long">
                 <input 
                     //style={{display: 'none'}}
                     type="text"
                     name="sort"
+                    className="long-short"
                     value={editFormData.sort}
                     readOnly
                 />
@@ -102,19 +104,21 @@ const EditableRow = ({ card, editFormData, handleEditFormChange, handleCancelCli
                     onChange={handleEditFormChange}
                 />
             </td>
-            <td>
+            <td className="long">
                 <input 
                     //style={{display: 'none'}}
                     type="text"
+                    className="long-short"
                     name="pictureName"
                     value={editFormData.pictureName}
                     onChange={handleEditFormChange}
                 />
             </td>
-            <td>
+            <td className="long">
                 <input 
                     type="file"
-                    name="picture"
+                    name="picture" 
+                    className="long-short"
                     placeholder="Select Image"
                     accept="image/png, image/jpeg, image/jpg"
                     //value={pictureChange}
