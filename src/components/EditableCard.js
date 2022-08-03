@@ -16,17 +16,17 @@ const EditableCard = ({ card, editFormData, handleEditFormChange, handleCancelCl
         <div>Phone Number: { card.phoneNumber }</div>*/}
 
         {/*--- Might be a problem in including id and sort as input fields because this isn't where their value is coming from ---*/} 
-        <label>ID:</label>
+        <label style={{display: 'none'}}>ID:</label>
         <input 
-            //style={{display: 'none'}}
+            style={{display: 'none'}}
             type="text"
             name="id"
             value={editFormData.id}
             readOnly
         />
-        <label>Sort:</label>
+        <label style={{display: 'none'}}>Sort:</label>
         <input 
-            //style={{display: 'none'}}
+            style={{display: 'none'}}
             type="text"
             name="sort"
             value={editFormData.sort}
@@ -55,6 +55,8 @@ const EditableCard = ({ card, editFormData, handleEditFormChange, handleCancelCl
         <input 
             type="date"
             name="dob"
+            min={"1923-01-01"}
+            max={"2006-01-01"}
             placeholder="Enter date of birth..."
             value={editFormData.dob}
             onChange={handleEditFormChange}
@@ -102,9 +104,9 @@ const EditableCard = ({ card, editFormData, handleEditFormChange, handleCancelCl
             value={editFormData.phoneNumber}
             onChange={handleEditFormChange}
         />
-        <label>Picture Name:</label>
+        <label style={{display: 'none'}}>Picture Name:</label>
         <input 
-            //style={{display: 'none'}}
+            style={{display: 'none'}}
             type="text"
             name="pictureName"
             value={editFormData.pictureName}

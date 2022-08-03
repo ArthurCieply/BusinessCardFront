@@ -102,7 +102,6 @@ const Create = () => {
                 body: JSON.stringify(newCard)
             }).then(() => {
                 console.log('New card added');
-                //history.push('/');
                 history.push('/BusinessCardFront/');
             }).catch(err => console.error(err))
     
@@ -169,7 +168,6 @@ const Create = () => {
                     body: JSON.stringify(newCard)
                 }).then(() => {
                     console.log('New card added');
-                    //history.push('/');
                     history.push('/BusinessCardFront/');
                 }).catch(err => console.error(err))
         
@@ -214,6 +212,8 @@ const Create = () => {
                 <input
                     type="date"
                     name="dob"
+                    min={"1923-01-01"}
+                    max={"2006-01-01"}
                     placeholder="Date of birth..."
                     onChange={handleAddFormChange}
                     //value={dob}

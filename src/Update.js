@@ -299,6 +299,8 @@ const Update = () => {
                         <input 
                             type="date"
                             name="dob"
+                            min={"1923-01-01"}
+                            max={"2006-01-01"}
                             placeholder="Enter date of birth..."
                             value={editFormData.dob}
                             onChange={handleEditFormChange}
