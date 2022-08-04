@@ -5,8 +5,17 @@ const EditableRow = ({ card, editFormData, handleEditFormChange, handleCancelCli
         <tr>
             <td className="long">
                 {/*--- Might be a problem in including id and sort as input fields because this isn't where their value is coming from ---*/} 
-                <input 
+                {/*<input 
                     //style={{display: 'none'}}
+                    type="text"
+                    className="long-short"
+                    name="id"
+                    value={editFormData.id}
+                    readOnly
+                />*/}
+                <textarea 
+                    //style={{display: 'none'}}
+                    id="" cols="45" rows="7"
                     type="text"
                     className="long-short"
                     name="id"
@@ -15,8 +24,17 @@ const EditableRow = ({ card, editFormData, handleEditFormChange, handleCancelCli
                 />
             </td>
             <td className="long">
-                <input 
+                {/*<input 
                     //style={{display: 'none'}}
+                    type="text"
+                    name="sort"
+                    className="long-short"
+                    value={editFormData.sort}
+                    readOnly
+                />*/}
+                <textarea 
+                    //style={{display: 'none'}}
+                    id="" cols="45" rows="7"
                     type="text"
                     name="sort"
                     className="long-short"
@@ -25,8 +43,17 @@ const EditableRow = ({ card, editFormData, handleEditFormChange, handleCancelCli
                 />
             </td>
             <td>
-                <input 
+                {/*<input 
                     type="text"
+                    name="cardName"
+                    required
+                    placeholder="Enter name..."
+                    value={editFormData.cardName}
+                    onChange={handleEditFormChange}
+                />*/}
+                <textarea 
+                    type="text"
+                    id="" cols="65" rows="4"
                     name="cardName"
                     required
                     placeholder="Enter name..."
@@ -37,6 +64,7 @@ const EditableRow = ({ card, editFormData, handleEditFormChange, handleCancelCli
             <td>
                 <input 
                     type="number"
+                    id="age-input"
                     name="age"
                     min={17}
                     max={99}
@@ -57,8 +85,17 @@ const EditableRow = ({ card, editFormData, handleEditFormChange, handleCancelCli
                 />
             </td>
             <td>
-                <input 
+                {/*<input 
                     type="text"
+                    name="jobTitle"
+                    required
+                    placeholder="Enter job title..."
+                    value={editFormData.jobTitle}
+                    onChange={handleEditFormChange}
+                />*/}
+                <textarea 
+                    type="text"
+                    id="" cols="48" rows="4"
                     name="jobTitle"
                     required
                     placeholder="Enter job title..."
@@ -67,8 +104,17 @@ const EditableRow = ({ card, editFormData, handleEditFormChange, handleCancelCli
                 />
             </td>
             <td>
-                <input 
+                {/*<input 
                     type="text"
+                    name="employer"
+                    required
+                    placeholder="Enter employer..."
+                    value={editFormData.employer}
+                    onChange={handleEditFormChange}
+                />*/}
+                <textarea 
+                    type="text"
+                    id="" cols="48" rows="4"
                     name="employer"
                     required
                     placeholder="Enter employer..."
@@ -77,8 +123,16 @@ const EditableRow = ({ card, editFormData, handleEditFormChange, handleCancelCli
                 />
             </td>
             <td>
-                <input 
+                {/*<input 
                     type="text"
+                    name="cityState"
+                    placeholder="Enter city and state..."
+                    value={editFormData.cityState}
+                    onChange={handleEditFormChange}
+                />*/}
+                <textarea 
+                    type="text"
+                    id="" cols="100" rows="4"
                     name="cityState"
                     placeholder="Enter city and state..."
                     value={editFormData.cityState}
@@ -86,14 +140,22 @@ const EditableRow = ({ card, editFormData, handleEditFormChange, handleCancelCli
                 />
             </td>
             <td>
-                <input 
+                {/*<input 
                     type="email"
                     name="email"
                     required
                     placeholder="Enter email..."
                     value={editFormData.email}
                     onChange={handleEditFormChange}
-                />
+                />*/}
+                <textarea 
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="Enter email..."
+                    value={editFormData.email}
+                    onChange={handleEditFormChange}
+                />                
             </td>
             <td>
                 <input 
@@ -105,20 +167,29 @@ const EditableRow = ({ card, editFormData, handleEditFormChange, handleCancelCli
                 />
             </td>
             <td className="long">
-                <input 
+                {/*<input 
                     //style={{display: 'none'}}
                     type="text"
                     className="long-short"
                     name="pictureName"
                     value={editFormData.pictureName}
                     onChange={handleEditFormChange}
+                />*/}
+                <textarea
+                    id="" cols="45" rows="7"
+                    type="text"
+                    /*className="long-short"*/
+                    name="pictureName"
+                    value={editFormData.pictureName}
+                    onChange={handleEditFormChange}
                 />
             </td>
-            <td className="long">
+            {/*<td className="long">*/}
+            <td>
                 <input 
                     type="file"
                     name="picture" 
-                    className="long-short"
+                    //className="long-short"
                     placeholder="Select Image"
                     accept="image/png, image/jpeg, image/jpg"
                     //value={pictureChange}
@@ -127,8 +198,10 @@ const EditableRow = ({ card, editFormData, handleEditFormChange, handleCancelCli
                 />
             </td>
             <td>
-                <button className="cancel-btn" type="button" onClick={handleCancelClick}>Cancel</button>
-                <button className="save-btn table-btn-margin-left" type="submit">Save</button>
+                <div className="action-buttons">
+                    <button className="cancel-btn" type="button" onClick={handleCancelClick}>Cancel</button>
+                    <button className="save-btn table-btn-margin-left" type="submit">Save</button>
+                </div>
             </td>
         </tr>
 

@@ -93,6 +93,9 @@ code {
 
 .card-preview:hover {
   box-shadow: 2px 4px 6px rgba(0,0,0,0.15);
+  -webkit-transform: scale(1.03) translateY(-2px);
+      -ms-transform: scale(1.03) translateY(-2px);
+          transform: scale(1.03) translateY(-2px);  
   -webkit-transition: .3s ease;
   -o-transition: .3s ease;
   transition: .3s ease;
@@ -419,23 +422,27 @@ td {
   min-width: 50px;
   max-width: 200px;
   overflow: hidden;
-  -webkit-transition: .3s ease;
-  -o-transition: .3s ease;
-  transition: .3s ease;
+  /*-webkit-transition: .5s ease;
+  -o-transition: .5s ease;
+  transition: .5s ease;*/
+
+  -webkit-transition: .75s linear;
+  -o-transition: .75s linear;
+  transition: .75s linear;
+}
+
+tr {
+  max-height: 143px;
 }
 
 tbody tr:hover td {
-  background-color: rgb(200, 230, 248);
-  -webkit-transition: .3s ease;
-  -o-transition: .3s ease;
-  transition: .3s ease;
-}
-
-tbody tr:hover td {
-  background-color: rgb(200, 230, 248);
-  -webkit-transition: .3s ease;
-  -o-transition: .3s ease;
-  transition: .3s ease;
+  background-color: rgb(196, 226, 244);
+  /*-webkit-transition: .5s ease;
+  -o-transition: .5s ease;
+  transition: .5s ease;*/
+  -webkit-transition: .4s linear;
+  -o-transition: .4s linear;
+  transition: .4s linear;
 }
 
 tr td input {
@@ -465,9 +472,23 @@ table .edit-btn {
   gap: 5px;
 }
 
+.table .action-buttons {
+  margin: auto auto;
+}
+
 .table form td:last-child {
   /*display: flex;*/
+  
   justify-content: space-evenly;
+
+  /*align-content: center;*/
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content:center
 }
 
 .table form * {
@@ -475,8 +496,13 @@ table .edit-btn {
 }
 
 .table form input {
-  min-width: 100px;
+  min-width: 50px;/*100px;*/
   width: fit-content;
+}
+
+.table form tr td input#age-input {
+  
+  width: 20px !important;
 }
 
 /*.add-form label {
@@ -533,6 +559,10 @@ th button.btn-image {
   border: none;
   -webkit-box-shadow: 0px 0px 0px 0px rgba(14, 0, 0, 0);
   box-shadow: 0px 0px 0px 0px rgba(14, 0, 0, 0);
+
+  -webkit-transition: .3s ease;
+  -o-transition: .3s ease;
+  transition: .3s ease;
   
 }
 
@@ -540,10 +570,18 @@ th button.btn-image:hover {
   -webkit-transform: scale(1.25);
       -ms-transform: scale(1.25);
           transform: scale(1.25);  
+
+  -webkit-transition: .3s ease;
+  -o-transition: .3s ease;
+  transition: .3s ease;
 }
 
 th button.btn-image:active {
   -webkit-transform: scale(1.45);
       -ms-transform: scale(1.45);
           transform: scale(1.45);
+
+  -webkit-transition: .3s ease;
+  -o-transition: .3s ease;
+  transition: .3s ease;
 }

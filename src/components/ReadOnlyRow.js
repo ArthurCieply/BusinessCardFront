@@ -19,8 +19,10 @@ const ReadOnlyRow = ({ card, handleEditClick, handleDeleteClick, handleDelete })
         <td className="long">{ card.pictureName }</td>
         <td className="table-image"><AmplifyS3Image imgKey={ card.pictureName }/></td>
         <td>
-            <button className="edit-btn" type="button" onClick={(event)=> handleEditClick(event, card)}>Edit</button>
-            <button className="delete-btn" type="button" onClick={(event)=> { event.preventDefault(); handleDelete(event, card); Storage.remove(`${card.pictureName}`)}} >Delete</button> {/*    handleDeleteClick(card.id)   */} 
+            <div className="action-buttons">
+                <button className="edit-btn" type="button" onClick={(event)=> handleEditClick(event, card)}>Edit</button>
+                <button className="delete-btn" type="button" onClick={(event)=> { event.preventDefault(); handleDelete(event, card); Storage.remove(`${card.pictureName}`)}} >Delete</button> {/*    handleDeleteClick(card.id)   */} 
+            </div>
         </td>
     </tr>
     );
