@@ -236,20 +236,20 @@ button:active {
 
 /*.card-details .cancel-btn {*/
 .cancel-btn {
-  background: #3867d59c;
+  background: #3867d59c !important;
   margin-bottom: 10px;
 }
 
 .cancel-btn:hover {
-  background: #2e56b2c5;
+  background: #2e56b2c5 !important;
 }
 
 .save-btn {
-  background: #0c8620;
+  background: #0c8620 !important;
 }
 
 .save-btn:hover {
-  background: #0c7820;
+  background: #0c7820 !important;
 }
 
 .card-details .output {

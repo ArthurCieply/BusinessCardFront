@@ -123,7 +123,7 @@ const EditableCard = ({ card, editFormData, handleEditFormChange, handleCancelCl
             /*---   Maybe Change the onChange to handlePictureUpload something like that    ---*/ 
         />
         <button className="cancel-btn" type="button" onClick={handleCancelClick}>Cancel</button>
-        <button type="submit">Save</button>
+        <button className="save-btn" type="submit">Save</button>
     </div>
 
             /*<div className="right">
