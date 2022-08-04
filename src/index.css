@@ -404,7 +404,8 @@ td {
   text-align: left;
   padding: 8px;
   font-size: 12px;
-  overflow-wrap: break-word ;
+  overflow-wrap: break-word;
+  text-align: center;
   /*word-wrap: break-word;
   word-break: break-all;*/
 }
