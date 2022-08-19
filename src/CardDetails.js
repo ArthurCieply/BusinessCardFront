@@ -184,8 +184,10 @@ const CardDetails = () => {
             console.log("Start Image Upload")
             //const sort = uuidv4()
             try {
-                //const result = await Storage.put(`${sub}---${sort}.png`, picture, {
-                const result = await Storage.put(`${editFormData.id}---${editFormData.sort}.png`, pictureChange, {
+                //          const result = await Storage.put(`${sub}---${sort}.png`, picture, {
+                //const result = await Storage.put(`${editFormData.id}---${editFormData.sort}.png`, pictureChange, {
+                //const result = await Storage.put(`${editFormData.id}/${editFormData.sort}.png`, pictureChange, {
+                const result = await Storage.put(`${editFormData.pictureName}`, pictureChange, {
                     contentType: "image/png",
                     progressCallback(progress) {
                         console.log(`Uploaded: ${progress.loaded}/${progress.total}`)

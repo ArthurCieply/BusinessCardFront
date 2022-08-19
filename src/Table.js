@@ -211,8 +211,11 @@ const SortableTable = ({ sortConfig }) => {
             
             console.log("Start Image Upload")
             //const sort = uuidv4()
+            let creds = await Auth.currentUserCredentials()
+            console.log(creds.identityId)
             try {
-                const result = await Storage.put(`${sub}---${sort}.png`, picture, {
+                //const result = await Storage.put(`${sub}---${sort}.png`, picture, {
+                const result = await Storage.put(`${creds.identityId}/${sub}---${sort}.png`, picture, {
                     contentType: "image/png",
                     progressCallback(progress) {
                         console.log(`Uploaded: ${progress.loaded}/${progress.total}`)
@@ -333,8 +336,9 @@ const SortableTable = ({ sortConfig }) => {
             console.log("Start Image Upload")
             //const sort = uuidv4()
             try {
-                //const result = await Storage.put(`${sub}---${sort}.png`, picture, {
-                const result = await Storage.put(`${editFormData.id}---${editFormData.sort}.png`, pictureChange, {
+                //          const result = await Storage.put(`${sub}---${sort}.png`, picture, {
+                //const result = await Storage.put(`${editFormData.id}---${editFormData.sort}.png`, pictureChange, {
+                const result = await Storage.put(`${editFormData.pictureName}`, pictureChange, {
                     contentType: "image/png",
                     progressCallback(progress) {
                         console.log(`Uploaded: ${progress.loaded}/${progress.total}`)
